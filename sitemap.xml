@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.21r000.xyz/about/index.html</loc>
+    
+    <lastmod>2022-03-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.21r000.xyz/article/735341d2.html</loc>
     
     <lastmod>2022-03-01</lastmod>
@@ -86,15 +95,6 @@
     <loc>https://www.21r000.xyz/article/60ec5e3d.html</loc>
     
     <lastmod>2022-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.21r000.xyz/about/index.html</loc>
-    
-    <lastmod>2022-02-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
