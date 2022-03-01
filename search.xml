@@ -4564,8 +4564,7 @@ cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dv
   <entry>
     <title>Windows PE文件结构解析Studying Notes之TLS表、延迟导入表、资源表和其他表解析</title>
     <url>/article/735341d2.html</url>
-    <content><![CDATA[<h1 id=""><a class="anchor" href="#">#</a> </h1>
-<h1 id="tls表结构解析"><a class="anchor" href="#tls表结构解析">#</a> TLS 表结构解析</h1>
+    <content><![CDATA[<h1 id="tls表结构解析"><a class="anchor" href="#tls表结构解析">#</a> TLS 表结构解析</h1>
 <p>lord PE 中查看 TLS 表信息</p>
 <p><img data-src="https://gitee.com/Is21r000/image/raw/master/pic1/image-20220228194119186.png" alt="image-20220228194119186" /></p>
 <p>由于 TLS 表往往存在 TLS 区段中的局部存储当中，而局部存储一般情况下会优于程序执行之前运行也就在执行 main 函数之前，所以需要考虑前后顺序。</p>
