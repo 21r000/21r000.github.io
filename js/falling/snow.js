@@ -1,3 +1,3 @@
-// build time:Tue Mar 01 2022 19:06:26 GMT+0800 (中国标准时间)
+// build time:Tue Mar 01 2022 19:14:10 GMT+0800 (中国标准时间)
 var n=null;(function(e){e.fn.snow=function(o){var t=e('<div class="snowbox" />').css({position:"absolute","z-index":"9999",top:"-50px"}).html("&#10052;"),a=e(document).height(),i=e(document).width(),l={minSize:10,maxSize:20,newOn:1e3,flakeColor:"#AFDAEF"},o=e.extend({},l,o);n=setInterval(function(){var n=Math.random()*i-100,l=.5+Math.random(),r=o.minSize+Math.random()*o.maxSize,m=a-200,s=n-500+Math.random()*500,d=a*10+Math.random()*5e3;t.clone().appendTo("body").css({left:n,opacity:l,"font-size":r,color:o.flakeColor}).animate({top:m,left:s,opacity:.2},d,"linear",function(){e(this).remove()})},o.newOn)}})(jQuery);if($(".snowbox").length<=0&&$("#home-bg-floor").length){$.fn.snow({minSize:5,maxSize:50,newOn:300})}document.addEventListener("pjax:send",function(e){if($(".snowbox").length){$(".snowbox").remove();n&&clearInterval(n)}});
 //rebuild by hrmmi 
